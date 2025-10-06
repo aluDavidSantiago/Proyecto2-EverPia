@@ -11,7 +11,7 @@ TecnoGestió S.L. es una empresa dedicada a la gestión documental y asesoramien
 - 4 monitores
 [Monitor de marca iggual]()
 - 1 impresora-fotocopiadora multifunción
-[Impresora multifuncion de la marca brother](com-hp-pro-sff-400-g9-product-image.png)
+![Impresora multifuncion de la marca brother](Img/Captura de pantalla 2025-10-06 194105.png)
 - 1 router de acceso a Internet
 [Router de la marca TP-Link](com-hp-pro-sff-400-g9-product-image.png)
 
