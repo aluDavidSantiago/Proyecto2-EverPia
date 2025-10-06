@@ -44,3 +44,7 @@ Como consultores júnior, vuestra misión es analizar las necesidades del client
 ---
 
 > Esta tarea forma parte del proyecto EverPia y os permitirá aplicar conocimientos técnicos en un caso real. Trabajad con precisión, criterio y profesionalidad.
+
+[Solución](https://github.com/aluDavidSantiago/Proyecto2-EverPia/blob/main/T02%3A%20Selecci%C3%B3%20d%E2%80%99un%20SAI%20per%20una%20empresa%20client/Soluci%C3%B3n.md)
+
+[Carpeta T02](https://github.com/aluDavidSantiago/Proyecto2-EverPia/tree/main/T08%3A%20Assessorament%20de%20domini%20i%20hosting%20(per%20client%20assignat)%20-%20Aplicacions%20)
