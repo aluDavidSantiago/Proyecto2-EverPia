@@ -9,8 +9,8 @@ TecnoGestió S.L. es una empresa dedicada a la gestión documental y asesoramien
   
 ![Ordenador HP](Img/com-hp-pro-sff-400-g9-product-image.png)
 - 4 monitores
-  
-[Monitor de marca iggual](Img/Capturadepantalla2025-10-06194105.png)
+
+![Monitor de marca iggual](Img/Capturadepantalla2025-10-06194105.png)
 - 1 impresora-fotocopiadora multifunción
   
 ![Impresora multifuncion de la marca brother](Img/Capturadepantalla2025-10-06194130.png)
