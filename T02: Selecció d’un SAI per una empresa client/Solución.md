@@ -28,16 +28,16 @@ Debido a las constantes incidencias eléctricas en la zona, la dirección ha dec
 
 ### Equipos conectados al SAI
 
-| Dispositivo | Modelo | Consumo (W) | Consumo (VA) | Enlace |
-|------------|--------|-------------|--------------|--------|
-| Ordenador | HP Pro 400 G9 | 240 W | 342.86 VA | [HP Support](https://support.hp.com/cl-es/document/ish_6181915-6186394-16) |
-| Monitor | iggual 27″ IPS | 48 W | 68.57 VA | [iggual](https://www.iggual.com/iggual-monitor-27-ips-fhd-75hz-vga-hdmi-frameless201222140017/) |
-| Router | TP-Link Archer C80 | 12 W | 17.14 VA | [TP-Link](https://www.tp-link.com/es/home-networking/wifi-router/archer-c80/#specifications) |
+| Dispositivo | Modelo | Consumo (W) | Consumo (VA) | Enlace técnico |
+|-------------|--------|-------------|--------------|----------------|
+| Ordenador   | HP Pro 400 G9 | 240 W | 342.86 VA | [Ficha técnica HP](https://support.hp.com/cl-es/document/ish_6181915-6186394-16) |
+| Monitor     | iggual 27″ IPS | 48 W | 68.57 VA | [Ficha técnica iggual](https://www.iggual.com/iggual-monitor-27-ips-fhd-75hz-vga-hdmi-frameless201222140017/) |
+| Router      | TP-Link Archer C80 | 12 W | 17.14 VA | [Ficha técnica TP-Link](https://www.tp-link.com/es/home-networking/wifi-router/archer-c80/#specifications) |
 
 ### Equipos excluidos del SAI
 
-- **Impresora multifunción (MFC-L2750DW)**: Consumo máximo de 475 W. No se conecta al SAI por su alto consumo y uso no continuo.  
-- **Periféricos (ratón, teclado, altavoces, etc.)**: No requieren alimentación directa en caso de corte eléctrico.
+- **Impresora multifunción (Brother MFC-L2750DW)**: Consumo máximo de 475 W. No se conecta al SAI por su alto consumo y uso no continuo.  
+- **Periféricos (ratón, teclado, altavoces, etc.)**: No requieren alimentación directa en caso de corte eléctrico, ya que dependen del ordenador principal.
 
 ## 3. Comentario técnico
 
