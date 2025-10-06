@@ -9,11 +9,14 @@ TecnoGestió S.L. es una empresa dedicada a la gestión documental y asesoramien
   
 ![Ordenador HP](Img/com-hp-pro-sff-400-g9-product-image.png)
 - 4 monitores
-[Monitor de marca iggual]()
+  
+[Monitor de marca iggual](Img/Capturadepantalla2025-10-06194105.png)
 - 1 impresora-fotocopiadora multifunción
-![Impresora multifuncion de la marca brother](Img/Captura de pantalla 2025-10-06 194105.png)
+  
+![Impresora multifuncion de la marca brother](Img/Capturadepantalla2025-10-06194130.png)
 - 1 router de acceso a Internet
-[Router de la marca TP-Link](com-hp-pro-sff-400-g9-product-image.png)
+  
+![Router de la marca TP-Link](Img/Capturadepantalla2025-10-06194113.png)
 
 
 Debido a las constantes incidencias eléctricas en la zona, la dirección ha decidido adquirir un SAI (Sistema de Alimentación Ininterrumpida) para garantizar la continuidad del servicio y proteger los equipos.
@@ -60,7 +63,9 @@ El objetivo del SAI es mantener operativos los dispositivos esenciales durante u
 - Potencia aparente: 1700 VA  
 - Autonomía: ≥10 minutos  
 - Tecnología: Line-interactive  
-- Precio: **836,16 €**  
+- Precio: **836,16 €**
+
+![Sai opcion A](Img/Capturadepantalla2025-10-06194139.png)
 - [Ver producto](https://www.conetica.es/sqlcommerce/disenos/plantilla1/seccion/producto/DetalleProducto.jsp?idIdioma=&idTienda=267&codProducto=NPR-1700-RT&cPath=247)
 
 ### Opción B: SOCOMEC NeTYS PR RT 1700VA/1350W (Coditek)
@@ -69,7 +74,9 @@ El objetivo del SAI es mantener operativos los dispositivos esenciales durante u
 - Potencia aparente: 1700 VA  
 - Autonomía: ≥10 minutos  
 - Tecnología: Line-interactive  
-- Precio: **515,00 €**  
+- Precio: **515,00 €**
+  
+![Sai opcion B](Img/Capturadepantalla2025-10-06194150.png)
 - [Ver producto](https://www.coditek.es/SOCOMEC-SAI-NETYS-PR-RT-1700VA-1350W-230V-50-60HZ-P380267.html)
 
 ## 6. Justificación de la selección final
