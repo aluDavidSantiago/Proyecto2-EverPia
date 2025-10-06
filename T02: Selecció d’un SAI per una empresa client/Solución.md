@@ -8,6 +8,9 @@ TecnoGestió S.L. es una empresa dedicada a la gestión documental y asesoramien
 - 4 ordenadores de sobremesa
   
 ![Ordenador HP](Img/com-hp-pro-sff-400-g9-product-image.png)
+
+<img src="Img/com-hp-pro-sff-400-g9-product-image.png" alt="Ordenador HP" width="200" height="auto">
+
 - 4 monitores
 
 ![Monitor de marca iggual](Img/Capturadepantalla2025-10-06194105.png)
