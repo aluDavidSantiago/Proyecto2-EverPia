@@ -6,6 +6,7 @@
 TecnoGestió S.L. es una empresa dedicada a la gestión documental y asesoramiento informático. Dispone de una oficina con los siguientes equipos:
 
 - 4 ordenadores de sobremesa
+  
 ![Ordenador HP](Img/com-hp-pro-sff-400-g9-product-image.png)
 - 4 monitores
 [Monitor de marca iggual]()
