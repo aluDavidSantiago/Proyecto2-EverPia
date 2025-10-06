@@ -6,9 +6,14 @@
 TecnoGestió S.L. es una empresa dedicada a la gestión documental y asesoramiento informático. Dispone de una oficina con los siguientes equipos:
 
 - 4 ordenadores de sobremesa
+[Ordenador HP](com-hp-pro-sff-400-g9-product-image.png)
 - 4 monitores
+[Monitor de marca iggual]()
 - 1 impresora-fotocopiadora multifunción
+[Impresora multifuncion de la marca brother](com-hp-pro-sff-400-g9-product-image.png)
 - 1 router de acceso a Internet
+[Router de la marca TP-Link](com-hp-pro-sff-400-g9-product-image.png)
+
 
 Debido a las constantes incidencias eléctricas en la zona, la dirección ha decidido adquirir un SAI (Sistema de Alimentación Ininterrumpida) para garantizar la continuidad del servicio y proteger los equipos.
 
