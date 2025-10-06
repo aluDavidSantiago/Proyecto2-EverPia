@@ -6,20 +6,20 @@
 TecnoGestió S.L. es una empresa dedicada a la gestión documental y asesoramiento informático. Dispone de una oficina con los siguientes equipos:
 
 - 4 ordenadores de sobremesa
-  
-![Ordenador HP](Img/com-hp-pro-sff-400-g9-product-image.png)
-
-<img src="Img/com-hp-pro-sff-400-g9-product-image.png" alt="Ordenador HP" width="200" height="auto">
+ 
+<img src="Img/com-hp-pro-sff-400-g9-product-image.png" alt="Ordenador HP" width="300" height="auto">
 
 - 4 monitores
 
-![Monitor de marca iggual](Img/Capturadepantalla2025-10-06194105.png)
+<img src="Img/Capturadepantalla2025-10-06194105.png" alt="Monitor de marca iggual" width="300" height="auto">
+
 - 1 impresora-fotocopiadora multifunción
-  
-![Impresora multifuncion de la marca brother](Img/Capturadepantalla2025-10-06194130.png)
+
+<img src="Img/Capturadepantalla2025-10-06194130.png" alt="Impresora multifuncion de la marca brother" width="300" height="auto">
+
 - 1 router de acceso a Internet
-  
-![Router de la marca TP-Link](Img/Capturadepantalla2025-10-06194113.png)
+
+<img src="Img/Capturadepantalla2025-10-06194113.png" alt="Router de la marca TP-Link" width="300" height="auto">
 
 
 Debido a las constantes incidencias eléctricas en la zona, la dirección ha decidido adquirir un SAI (Sistema de Alimentación Ininterrumpida) para garantizar la continuidad del servicio y proteger los equipos.
@@ -68,7 +68,8 @@ El objetivo del SAI es mantener operativos los dispositivos esenciales durante u
 - Tecnología: Line-interactive  
 - Precio: **836,16 €**
 
-![Sai opcion A](Img/Capturadepantalla2025-10-06194139.png)
+<img src="Img/Capturadepantalla2025-10-06194139.png" alt="Sai opcion A" width="300" height="auto">
+
 - [Ver producto](https://www.conetica.es/sqlcommerce/disenos/plantilla1/seccion/producto/DetalleProducto.jsp?idIdioma=&idTienda=267&codProducto=NPR-1700-RT&cPath=247)
 
 ### Opción B: SOCOMEC NeTYS PR RT 1700VA/1350W (Coditek)
@@ -78,8 +79,9 @@ El objetivo del SAI es mantener operativos los dispositivos esenciales durante u
 - Autonomía: ≥10 minutos  
 - Tecnología: Line-interactive  
 - Precio: **515,00 €**
-  
-![Sai opcion B](Img/Capturadepantalla2025-10-06194150.png)
+
+<img src="Img/Capturadepantalla2025-10-06194150.png" alt="Sai opcion B" width="300" height="auto">
+
 - [Ver producto](https://www.coditek.es/SOCOMEC-SAI-NETYS-PR-RT-1700VA-1350W-230V-50-60HZ-P380267.html)
 
 ## 6. Justificación de la selección final
