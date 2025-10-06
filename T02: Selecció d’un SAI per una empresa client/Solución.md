@@ -87,3 +87,7 @@ El objetivo del SAI es mantener operativos los dispositivos esenciales durante u
 ## 6. Justificación de la selección final
 
 El modelo **SOCOMEC NeTYS PR RT 1700VA/1350W** es la mejor opción para TecnoGestió S.L. por su potencia, autonomía, calidad profesional y funciones avanzadas de gestión. Aunque su precio puede ser superior, la inversión se justifica por la seguridad, fiabilidad y escalabilidad que aporta al entorno informático de la empresa.
+
+[README](https://github.com/aluDavidSantiago/Proyecto2-EverPia/blob/main/T02%3A%20Selecci%C3%B3%20d%E2%80%99un%20SAI%20per%20una%20empresa%20client/README.md)
+
+[Carpeta T02](https://github.com/aluDavidSantiago/Proyecto2-EverPia/tree/main/T08%3A%20Assessorament%20de%20domini%20i%20hosting%20(per%20client%20assignat)%20-%20Aplicacions%20)
