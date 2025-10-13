@@ -112,5 +112,4 @@ Listado de capturas a incluir:
   - Correo corporativo y gestión DNS
   - Posibilidad de migración a Cloudways si el proyecto crece
 
-> Esta propuesta garantiza un buen rendimiento, una imagen profesional y capacidad de crecimiento para el cliente Mercat Local Online.
 
