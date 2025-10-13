@@ -107,6 +107,7 @@
 - Captura de disponibilidad del dominio.
 
 <img src="com-hp-pro-sff-400-g9-product-image.png" alt="Disponibilidad de hosting y precio" width="300" height="auto">
+
 - Panel de control del hosting elegido.  
 - Instalación inicial WordPress + WooCommerce.  
 - Plan de hosting y detalle de servicios incluidos.  
