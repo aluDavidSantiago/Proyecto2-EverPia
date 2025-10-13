@@ -86,8 +86,8 @@
 | Concepto             | Precio anual (€)         |
 |----------------------|-------------------------|
 | Hosting Dinahosting   | 6,59 € × 12 = 79,08 €   |
-| Dominio mercatlocal.cat | ~12 €                |
-| **Total anual estimado** | **~91,08 €**           |
+| Dominio mercatlocal.cat | 6,05 €                |
+| **Total anual estimado** | **~85,03€**           |
 
 ---
 
