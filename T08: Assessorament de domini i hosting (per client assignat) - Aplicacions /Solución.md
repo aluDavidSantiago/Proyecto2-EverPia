@@ -106,7 +106,7 @@
 
 - Captura de disponibilidad del dominio.
 
-<img src="hostingprecio.png" alt="hostingprecio.png" width="300" height="auto">
+![precio hosting](preciohosting.png)
 
 - Panel de control del hosting elegido.  
 - Instalación inicial WordPress + WooCommerce.  
