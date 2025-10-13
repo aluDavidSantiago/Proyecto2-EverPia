@@ -123,4 +123,3 @@
 
 ---
 
-¿Quieres que te ayude a preparar esta propuesta en PDF o presentación?  
