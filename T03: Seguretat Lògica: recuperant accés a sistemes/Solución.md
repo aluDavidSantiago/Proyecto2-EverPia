@@ -2,11 +2,11 @@
 
 ## Índice
 
-1. [Crear la máquina virtual](#1-crear-la-máquina-virtual-)
-2. [Recuperar contraseña desde GRUB](#2-recuperar-contraseña-desde-grub-)
-3. [Protección básica del GRUB (contraseña root)](#3-protección-básica-del-grub-contraseña-root-)
-4. [Protección avanzada del GRUB (arranque sin contraseña)](#4-protección-avanzada-del-grub-arranque-sin-contraseña-)
-5. [Notas finales y recomendaciones](#5-notas-finales-y-recomendaciones-)
+1. Crear la máquina virtual
+2. Recuperar contraseña desde GRUB
+3. Protección básica del GRUB (contraseña root)
+4. Protección avanzada del GRUB (arranque sin contraseña)
+5. Notas finales y recomendaciones
 
 ---
 
@@ -174,7 +174,7 @@ Permite arrancar el sistema normalmente sin solicitar contraseña, pero restring
 
 ---
 
-## 4. 📝 Notas finales
+## 5. 📝 Notas finales
 
 - La manipulación del GRUB y del acceso `root` debe realizarse con extrema precaución.
 - Siempre es recomendable contar con copias de seguridad del sistema antes de realizar estos cambios.
