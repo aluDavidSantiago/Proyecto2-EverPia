@@ -2,13 +2,11 @@
 
 ## Índice
 
-## Índice
-
-1. [1️⃣ Crear la máquina virtual](#1️-crear-la-máquina-virtual)  
-2. [2️⃣ Recuperar contraseña desde GRUB](#2️-recuperar-contraseña-desde-grub)  
-3. [3️⃣ Protección básica del GRUB (contraseña root)](#3️-protección-básica-del-grub-contraseña-root)  
-4. [4️⃣ Protección avanzada del GRUB (arranque sin contraseña)](#4️-protección-avanzada-del-grub-arranque-sin-contraseña)  
-5. [5️⃣ Notas finales y recomendaciones](#5️-notas-finales-y-recomendaciones)
+1. [Crear la máquina virtual](#1-crear-la-máquina-virtual-)
+2. [Recuperar contraseña desde GRUB](#2-recuperar-contraseña-desde-grub-)
+3. [Protección básica del GRUB (contraseña root)](#3-protección-básica-del-grub-contraseña-root-)
+4. [Protección avanzada del GRUB (arranque sin contraseña)](#4-protección-avanzada-del-grub-arranque-sin-contraseña-)
+5. [Notas finales y recomendaciones](#5-notas-finales-y-recomendaciones-)
 
 ---
 
