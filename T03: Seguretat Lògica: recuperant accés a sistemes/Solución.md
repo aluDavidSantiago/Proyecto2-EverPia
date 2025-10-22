@@ -15,13 +15,15 @@
 Configuraremos una máquina virtual con los recursos necesarios y un disco existente con una imagen ISO previamente preparada, para realizar prácticas de recuperación de contraseñas y protección del GRUB.
 
 ### Pasos detallados:
+<img src="img/confi1.png" alt="linea de comando" width="500" height="auto">
+<img src="img/confi2.png" alt="linea de comando" width="500" height="auto">
 
 1. Crea una nueva máquina virtual con:
    - **8 GB de memoria RAM**
    - **2 procesadores**
 2. En el apartado **Hard Disk**, selecciona:  
    `Use an existing virtual hard disk file`
-3. Elige el disco que contiene la ISO previamente creada.
+3. Elige el disco que contiene la ISO previamente creada y en este caso estara en la comuna.
 4. Guarda la configuración y arranca la máquina.
 
 ### 📝 Notas importantes:
