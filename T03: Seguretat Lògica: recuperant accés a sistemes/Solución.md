@@ -181,3 +181,6 @@ Permite arrancar el sistema normalmente sin solicitar contraseña, pero restring
 - Estas configuraciones están destinadas a usuarios con **permisos administrativos** o personal técnico autorizado.
 
 ---
+
+fuente1: https://youtu.be/uVGcgudLTl0?si=xhJET3GmH53PvVsd
+fuente2: https://soloconlinux.org.es/securizando-grub/
