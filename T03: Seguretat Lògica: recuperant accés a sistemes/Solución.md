@@ -24,7 +24,26 @@
 18. [Notas finales](#18-notas-finales)
 
 ---
+Antes de empezar debemos Identificar la partición raíz correcta
+Antes de ejecutar set root=(hd0,gpt3), se necesita saber en qué partición está instalado el sistema operativo.
 
+Comandos útiles en GRUB:
+```
+ls
+```
+Muestra todos los discos y particiones disponibles, por ejemplo:
+
+```
+(hd0) (hd0,gpt1) (hd0,gpt2) (hd0,gpt3)
+```
+```
+ls (hd0,gpt3)/
+```
+
+Explora el contenido de una partición. Busca una que contenga /boot o archivos como vmlinuz, initrd.img, etc.
+
+Una vez identificada la partición correcta iniciamos la entrada/vulneración.
+---
 ## 1. Creación de la máquina virtual
 
 Configuraremos una máquina virtual con los recursos necesarios y un disco existente con una imagen ISO previamente preparada, para realizar prácticas de recuperación de contraseñas y protección del GRUB.
