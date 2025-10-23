@@ -29,8 +29,8 @@
 
 Configuraremos una máquina virtual con los recursos necesarios y un disco existente con una imagen ISO previamente preparada, para realizar prácticas de recuperación de contraseñas y protección del GRUB.
 
-`/Imagenconfi1/`  
-`/Imagenconfi2/`
+<img src="img/confi1.png" alt="Ordenador HP" width="400" height="auto">  
+<img src="img/confi2.png" alt="Ordenador HP" width="400" height="auto">
 
 **Pasos detallados:**
 - Crea una nueva máquina virtual con:
@@ -52,9 +52,12 @@ En este paso se accederá al menú GRUB presionando la tecla **Esc** durante el 
 - Presiona repetidamente la tecla **Esc** durante el arranque para acceder al menú GRUB.  
 - En el prompt de GRUB (`grub_es>`), ejecuta:
   
-`set root=(hd0,gpt3)`  
+```
+set root=(hd0,gpt3)
 
-`/Imagen1/`
+```
+
+<img src="img/1.png" alt="Ordenador HP" width="400" height="auto"> 
 
 Este comando indica a GRUB que la raíz está en el primer disco (hd0), tercera partición GPT (gpt3).
 
@@ -66,9 +69,12 @@ Este comando indica a GRUB que la raíz está en el primer disco (hd0), tercera 
 
 Ejecuta:
 
-`linux /boot/vmlinuz-6.8.0-52-generic root=/dev/sda3 rw init=/bin/bash` 
+```
+linux /boot/vmlinuz-6.8.0-52-generic root=/dev/sda3 rw init=/bin/bash
 
-`/Imagen2/`
+```
+
+<img src="img/2.png" alt="Ordenador HP" width="500" height="auto"> 
 
 **Explicación:**
 - `linux`: indica a GRUB que cargue el kernel.  
@@ -85,12 +91,19 @@ Ejecuta:
 
 Ejecuta:
 
-`initrd /boot/initrd.img-6.8.0-52-generic`
+```
+initrd /boot/initrd.img-6.8.0-52-generic
 
-`/Imagen3/`
+```
+
+<img src="img/3.png" alt="Ordenador HP" width="500" height="auto"> 
 
 Luego:
-`boot`
+
+```
+boot
+
+```
 
 ⚠️ **Nota:** La versión de la imagen initrd debe coincidir con la del kernel cargado.
 
@@ -100,14 +113,19 @@ Luego:
 
 Ejecuta:
 
-`cat /etc/passwd | grep /home`
+```
+cat /etc/passwd | grep /home
 
-`/Imagen4/`
+```
+
+<img src="img/4.png" alt="Ordenador HP" width="600" height="auto"> 
 
 Luego:
 
-`passwd miquel`
+```
+passwd miquel
 
+```
 
 ⚠️ **Nota:** Si el sistema está en solo lectura, remonta la raíz con permisos de escritura antes de ejecutar `passwd`.
 
@@ -117,14 +135,19 @@ Luego:
 
 Ejecuta:
 
-`passwd miquel`
+```
+passwd miquel
 
-`/Imagen5/`
+```
+
+<img src="img/5.png" alt="Ordenador HP" width="400" height="auto"> 
 
 Mensaje esperado:
 
-`passwd: password updated successfully`
+```
+passwd: password updated successfully
 
+```
 
 ⚠️ **Nota:** Asegúrate de que el sistema de archivos raíz esté montado con permisos de escritura.
 
@@ -134,9 +157,12 @@ Mensaje esperado:
 
 Ejecuta:
 
-`exit`
+```
+exit
 
-`/Imagen6/`
+```
+
+<img src="img/6.png" alt="Ordenador HP" width="500" height="auto"> 
 
 ⚠️ **Nota:** Si el sistema no se reinicia automáticamente, hazlo desde VirtualBox manualmente.
 
@@ -146,7 +172,7 @@ Ejecuta:
 
 Después de reiniciar, inicia sesión con la nueva contraseña.
 
-`/Imagen inicio.png/`
+<img src="img/inicio.png" alt="Ordenador HP" width="400" height="auto"> 
 
 **Pasos:**
 - Espera la pantalla de inicio de sesión.  
@@ -161,9 +187,12 @@ Después de reiniciar, inicia sesión con la nueva contraseña.
 
 Ejecuta:
 
-`grub-mkpasswd-pbkdf2`
+```
+grub-mkpasswd-pbkdf2
 
-`/Imagen9/`
+```
+
+<img src="img/9.png" alt="Ordenador HP" width="400" height="auto"> 
 
 Copia el hash generado.
 
@@ -174,17 +203,22 @@ Copia el hash generado.
 ## 10. Editar el archivo 40_custom
 
 Abre:
+```
+sudo nano /etc/grub.d/40_custom
 
-`sudo nano /etc/grub.d/40_custom`
+```
 
-`/Imagen10/`
+<img src="img/10.png" alt="Ordenador HP" width="400" height="auto"> 
 
 Agrega:
-`set superusers="miquel,root"`
-`password_pbkdf2 miquel grub.pbkdf2.sha512.10000.01B0F9BFED3D69C8C29750B17590BAB7...` (hash contraseña miquel)
-`password_pbkdf2 root grub.pbkdf2.sha512.10000.83F0FFABC8F9F01098FB80DF5EB093B0A...` (hash contraseña root)
+```
+set superusers="miquel,root"`
+password_pbkdf2 miquel grub.pbkdf2.sha512.10000.01B0F9BFED3D69C8C29750B17590BAB7... (hash contraseña miquel)
+password_pbkdf2 root grub.pbkdf2.sha512.10000.83F0FFABC8F9F01098FB80DF5EB093B0A... (hash contraseña root)
 
-`/Imagen11/`
+```
+
+<img src="img/11.png" alt="Ordenador HP" width="400" height="auto"> 
 
 Guarda con **Ctrl + O**, sal con **Ctrl + X**.
 
@@ -196,17 +230,24 @@ Guarda con **Ctrl + O**, sal con **Ctrl + X**.
 
 Verifica:
 
-`sudo passwd -S root`
+```
+sudo passwd -S root
 
+```
 Desbloquea:
 
-`sudo passwd -u root`
+```
+sudo passwd -u root
 
+```
 Asigna:
 
-`sudo passwd root`
+```
+sudo passwd root
 
-`/Imagen12/`
+```
+
+<img src="img/12.png" alt="Ordenador HP" width="400" height="auto"> 
 
 ⚠️ **Nota:** Usa esta contraseña solo para administración avanzada.
 
@@ -216,9 +257,12 @@ Asigna:
 
 Ejecuta:
 
-`su`
+```
+su
 
-`/Imagen13/`
+```
+
+<img src="img/13.png" alt="Ordenador HP" width="400" height="auto"> 
 
 Si el prompt cambia a `root@equipo:~#`, el acceso fue exitoso.
 
@@ -228,15 +272,20 @@ Si el prompt cambia a `root@equipo:~#`, el acceso fue exitoso.
 
 Ejecuta:
 
-`sudo update-grub`
+```
+sudo update-grub
 
-`/Imagen16/`
+```
+
+<img src="img/16.png" alt="Ordenador HP" width="400" height="auto"> 
 
 Salida esperada:
 
-`Generating grub configuration file ...
-done`
+```
+Generating grub configuration file ...
+done
 
+```
 
 ⚠️ **Nota:** Este paso es obligatorio tras cualquier cambio en GRUB.
 
@@ -245,10 +294,11 @@ done`
 ## 14. Verificar protección de GRUB tras reinicio
 
 Reinicia:
+```
 
-`sudo reboot`
+sudo reboot
 
-`/Imagen17/`
+```
 
 GRUB pedirá usuario y contraseña.  
 Introduce `miquel` o `root`.
@@ -265,7 +315,7 @@ En la autenticación:
 
 Introduce la contraseña configurada.  
 
-`/Imagen18/`
+<img src="img/18.png" alt="Ordenador HP" width="400" height="auto"> 
 
 ⚠️ **Nota:** Si fallas, no podrás continuar con el arranque.
 
@@ -279,7 +329,6 @@ Abre:
 
 Cambia:
 ```
-
 echo "menuentry '$(echo "$title" | grub_quote)' ${CLASS} >
 
 ```
@@ -290,7 +339,7 @@ echo "menuentry '$(echo "$title" | grub_quote)' ${CLASS} --unrestricted >
 
 ```
 
-`/Imagen21/`
+<img src="img/21.png" alt="Ordenador HP" width="400" height="auto"> 
 
 Guarda y ejecuta:
 ```
@@ -311,13 +360,16 @@ Reinicia:
 sudo reboot
 
 ```
-`/Imagen22/`
+
+<img src="img/22.png" alt="Ordenador HP" width="400" height="auto"> 
 
 El sistema arrancará directamente sin pedir contraseña.  
-`/Imagen23/`
+
+<img src="img/23.png" alt="Ordenador HP" width="400" height="auto"> 
 
 Para acceder al menú protegido, presiona **Shift** o **Esc**.  
-`/Imagen24/`
+
+<img src="img/24.png" alt="Ordenador HP" width="600" height="auto"> 
 
 ⚠️ **Nota:** El sistema arrancará normalmente, pero el menú avanzado seguirá protegido.
 
@@ -337,4 +389,3 @@ Para acceder al menú protegido, presiona **Shift** o **Esc**.
 - [SoloConLinux: securizando-grub](https://soloconlinux.org.es/securizando-grub/)
 ```
 
----
