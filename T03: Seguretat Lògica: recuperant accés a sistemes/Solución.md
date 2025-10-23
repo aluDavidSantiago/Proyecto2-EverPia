@@ -1,12 +1,27 @@
-# Guía: Recuperación de Contraseñas y Protección del GRUB en Linux
+# Guía Técnica: Configuración de Máquina Virtual y Protección del GRUB
 
-## Índice
+---
 
-1. Crear la máquina virtual
-2. Recuperar contraseña desde GRUB
-3. Protección básica del GRUB (contraseña root)
-4. Protección avanzada del GRUB (arranque sin contraseña)
-5. Notas finales y recomendaciones
+## 📘 Índice
+
+1. [Creación de la máquina virtual](#1-creación-de-la-máquina-virtual)  
+2. [Acceder al menú GRUB y establecer la raíz en la partición correcta](#2-acceder-al-menú-grub-y-establecer-la-raíz-en-la-partición-correcta)  
+3. [Cargar el kernel Linux desde GRUB con parámetros específicos](#3-cargar-el-kernel-linux-desde-grub-con-parámetros-específicos)  
+4. [Cargar la imagen initrd y arrancar el sistema](#4-cargar-la-imagen-initrd-y-arrancar-el-sistema)  
+5. [Ver usuarios con directorio en home y cambiar la contraseña](#5-ver-usuarios-con-directorio-en-home-y-cambiar-la-contraseña)  
+6. [Cambiar la contraseña de un usuario desde el shell de recuperación](#6-cambiar-la-contraseña-de-un-usuario-desde-el-shell-de-recuperación)  
+7. [Reiniciar el sistema desde el shell de recuperación](#7-reiniciar-el-sistema-desde-el-shell-de-recuperación)  
+8. [Iniciar sesión con la nueva contraseña](#8-iniciar-sesión-con-la-nueva-contraseña)  
+9. [Generar hash PBKDF2 para GRUB](#9-generar-hash-pbkdf2-para-grub)  
+10. [Editar el archivo 40_custom](#10-editar-el-archivo-40_custom)  
+11. [Establecer contraseña para el usuario root](#11-establecer-contraseña-para-el-usuario-root)  
+12. [Verificar acceso al usuario root con su](#12-verificar-acceso-al-usuario-root-con-su)  
+13. [Actualizar GRUB para aplicar los cambios](#13-actualizar-grub-para-aplicar-los-cambios)  
+14. [Verificar protección de GRUB tras reinicio](#14-verificar-protección-de-grub-tras-reinicio)  
+15. [Autenticarse en GRUB](#15-autenticarse-en-grub)  
+16. [Modificar 10_linux para añadir o quitar --unrestricted](#16-modificar-10_linux-para-añadir-o-quitar---unrestricted)  
+17. [Verificar autenticación solo en accesos intencionados](#17-verificar-autenticación-solo-en-accesos-intencionados)  
+18. [Notas finales](#18-notas-finales)
 
 ---
 
@@ -14,175 +29,312 @@
 
 Configuraremos una máquina virtual con los recursos necesarios y un disco existente con una imagen ISO previamente preparada, para realizar prácticas de recuperación de contraseñas y protección del GRUB.
 
-### Pasos detallados:
-<img src="img/confi1.png" alt="linea de comando" width="500" height="auto">
-<img src="img/confi2.png" alt="linea de comando" width="500" height="auto">
+`/Imagenconfi1/`  
+`/Imagenconfi2/`
 
-1. Crea una nueva máquina virtual con:
-   - **8 GB de memoria RAM**
-   - **2 procesadores**
-2. En el apartado **Hard Disk**, selecciona:  
-   `Use an existing virtual hard disk file`
-3. Elige el disco que contiene la ISO previamente creada y en este caso estara en la comuna.
-4. Guarda la configuración y arranca la máquina.
-
-### 📝 Notas importantes:
-
-- No es necesario crear un disco nuevo; usaremos uno ya existente.
-- Verifica que la imagen seleccionada sea la correcta y compatible con el sistema operativo.
+**Pasos detallados:**
+- Crea una nueva máquina virtual con:
+  - 8 GB de memoria RAM  
+  - 2 procesadores  
+- En el apartado **Hard Disk**, selecciona:  
+  *Use an existing virtual hard disk file*  
+- Elige el disco que contiene la ISO previamente creada (en este caso estará en la comuna).  
+- Guarda la configuración y arranca la máquina.
 
 ---
 
-## 2. Cambio de contraseña mediante GRUB
+## 2. Acceder al menú GRUB y establecer la raíz en la partición correcta
 
-Este procedimiento permite restablecer la contraseña de un usuario Linux cuando se ha perdido el acceso, utilizando el modo `root` a través del GRUB.
+En este paso se accederá al menú GRUB presionando la tecla **Esc** durante el arranque y se configurará la partición raíz en GRUB.
 
-### Pasos detallados:
+**Pasos detallados:**
+- Inicia o reinicia la máquina virtual.  
+- Presiona repetidamente la tecla **Esc** durante el arranque para acceder al menú GRUB.  
+- En el prompt de GRUB (`grub_es>`), ejecuta:
+  
+`set root=(hd0,gpt3)`  
 
-1. Reinicia la máquina y presiona `Esc` repetidamente para acceder al menú del GRUB.
-2. Selecciona la entrada de Linux deseada y presiona `e` para editarla.
-3. Sustituye las líneas del arranque por las siguientes:
+`/Imagen1/`
 
-   ```bash
-   linux /boot/vmlinuz-6.8.0-52-generic root=/dev/sda3 rw init=/bin/bash
-   initrd /boot/initrd.img-6.8.0-52-generic
-   boot
-<img src="img/2.png" alt="linea de comando" width="500" height="auto">
-<img src="img/3.png" alt="linea de comando" width="500" height="auto">
-   > ⚠️ Estas líneas inician una sesión `root` sin contraseña.
+Este comando indica a GRUB que la raíz está en el primer disco (hd0), tercera partición GPT (gpt3).
 
-5. Una vez dentro del sistema, ejecuta el siguiente comando para cambiar la contraseña del usuario:
-
-    ```bash
-    passwd miquel
-    ```
-<img src="img/5.png" alt="linea de comando" width="400" height="auto">
-6. Introduce y confirma la nueva contraseña.
-7. Reinicia la máquina normalmente (`Ctrl + Alt + Del` o `reboot` si estás en bash).
-8. Inicia sesión con la nueva contraseña.
-
-### ⚠️ Notas importantes
-
-- Este método **solo funciona** si el GRUB **no está protegido** con contraseña.
-- Debe usarse **únicamente** con fines de recuperación o administración autorizada.
+⚠️ **Nota:** La nomenclatura `(hd0,gpt3)` puede variar. Asegúrate de usar la partición correcta.
 
 ---
 
-## 3. Protección básica del GRUB
+## 3. Cargar el kernel Linux desde GRUB con parámetros específicos
 
-Este paso asegura el GRUB estableciendo una contraseña de administrador para impedir cambios no autorizados en las opciones de arranque.
+Ejecuta:
 
-### Pasos detallados:
+`linux /boot/vmlinuz-6.8.0-52-generic root=/dev/sda3 rw init=/bin/bash` 
 
-1. Genera una contraseña cifrada ejecutando:
+`/Imagen2/`
 
-    ```bash
-    grub-mkpasswd-pbkdf2
-    ```
-<img src="img/9.png" alt="linea de comando" width="400" height="auto">
-2. Escribe y confirma la contraseña. El sistema generará un hash similar a:
+**Explicación:**
+- `linux`: indica a GRUB que cargue el kernel.  
+- `/boot/vmlinuz-6.8.0-52-generic`: ruta al kernel.  
+- `root=/dev/sda3`: define la partición raíz.  
+- `rw`: monta el sistema con permisos de escritura.  
+- `init=/bin/bash`: abre un shell Bash como proceso principal.
 
-    ```
-    PBKDF2 hash of your password is grub.pbkdf2.sha512.10000.<hash>
-    ```
-
-3. Copia el hash generado.
-
-4. Edita el archivo de configuración personalizado del GRUB:
-
-    ```bash
-    sudo nano /etc/grub.d/40_custom
-    ```
-
-5. Al final del archivo, agrega las siguientes líneas:
-
-    ```bash
-    set superusers="root"
-    password_pbkdf2 root <hash>
-    ```
-<img src="img/11.png" alt="linea de comando" width="500" height="auto">
-
-    > Reemplaza `<hash>` por el hash que copiaste en el paso anterior.
-
-6. Guarda y cierra el archivo (`Ctrl + O`, `Enter`, `Ctrl + X`).
-
-7. Actualiza la configuración del GRUB:
-
-    ```bash
-    sudo update-grub
-    ```
-<img src="img/16.png" alt="linea de comando" width="500" height="auto">
-
-8. Reinicia la máquina.
-
-### ⚠️ Notas importantes
-
-- Tras reiniciar, el GRUB solicitará **usuario y contraseña** incluso para un arranque estándar.
-- Mejora significativamente la seguridad, aunque puede resultar incómodo para algunos usuarios.
+⚠️ **Nota:** Usa la versión correcta del kernel instalada en el sistema.
 
 ---
 
-## 4. Protección avanzada del GRUB
+## 4. Cargar la imagen initrd y arrancar el sistema
 
-Permite arrancar el sistema normalmente sin solicitar contraseña, pero restringe el acceso a las opciones avanzadas o de edición del GRUB.
+Ejecuta:
 
-### 🧭 Pasos detallados
+`initrd /boot/initrd.img-6.8.0-52-generic`
 
-1. Edita el archivo de configuración de GRUB:
+`/Imagen3/`
 
-    ```bash
-    sudo nano /etc/grub.d/10_linux
-    ```
-<img src="img/19.png" alt="linea de comando" width="500" height="auto">
+Luego:
+`boot`
 
-2. Busca las líneas que contienen `menuentry` presionando `Ctrl + W` y escribiendo:
-
-    ```
-    menuentry
-    ```
-
-3. En cada línea `menuentry`, añade la opción `--unrestricted` después del parámetro `${CLASS}`. Por ejemplo:
-
-    ```bash
-    menuentry 'Ubuntu' --class ubuntu --class gnu-linux --class gnu --class os --unrestricted {
-    ```
-<img src="img/20.png" alt="linea de comando" width="500" height="auto">
-
-4. Guarda los cambios (`Ctrl + O`, `Enter`, `Ctrl + X`).
-
-5. Regenera la configuración del GRUB:
-
-    ```bash
-    sudo update-grub
-    ```
-<img src="img/21.png" alt="linea de comando" width="500" height="auto">
-
-6. Reinicia la máquina para aplicar los cambios.
-
-    ```bash
-    sudo reboot
-    ```
-<img src="img/22.png" alt="linea de comando" width="500" height="auto">
-
-### ✅ Resultado esperado
-
-- El sistema arrancará normalmente **sin solicitar contraseña**.
-- Si se intenta acceder al modo de recuperación, edición o consola GRUB, **sí se solicitará** usuario y contraseña.
-
-### ⚠️ Notas importantes
-
-- Esta configuración ofrece un buen **equilibrio entre seguridad y usabilidad**.
-- Ideal para entornos donde se requiere protección, pero sin obstaculizar el arranque diario.
+⚠️ **Nota:** La versión de la imagen initrd debe coincidir con la del kernel cargado.
 
 ---
 
-## 5. 📝 Notas finales
+## 5. Ver usuarios con directorio en /home y cambiar la contraseña
 
-- La manipulación del GRUB y del acceso `root` debe realizarse con extrema precaución.
-- Siempre es recomendable contar con copias de seguridad del sistema antes de realizar estos cambios.
-- Estas configuraciones están destinadas a usuarios con **permisos administrativos** o personal técnico autorizado.
+Ejecuta:
+
+`cat /etc/passwd | grep /home`
+
+`/Imagen4/`
+
+Luego:
+
+`passwd miquel`
+
+
+⚠️ **Nota:** Si el sistema está en solo lectura, remonta la raíz con permisos de escritura antes de ejecutar `passwd`.
 
 ---
 
-fuente1: https://youtu.be/uVGcgudLTl0?si=xhJET3GmH53PvVsd
-fuente2: https://soloconlinux.org.es/securizando-grub/
+## 6. Cambiar la contraseña de un usuario desde el shell de recuperación
+
+Ejecuta:
+
+`passwd miquel`
+
+`/Imagen5/`
+
+Mensaje esperado:
+
+`passwd: password updated successfully`
+
+
+⚠️ **Nota:** Asegúrate de que el sistema de archivos raíz esté montado con permisos de escritura.
+
+---
+
+## 7. Reiniciar el sistema desde el shell de recuperación
+
+Ejecuta:
+
+`exit`
+
+`/Imagen6/`
+
+⚠️ **Nota:** Si el sistema no se reinicia automáticamente, hazlo desde VirtualBox manualmente.
+
+---
+
+## 8. Iniciar sesión con la nueva contraseña
+
+Después de reiniciar, inicia sesión con la nueva contraseña.
+
+`/Imagen inicio.png/`
+
+**Pasos:**
+- Espera la pantalla de inicio de sesión.  
+- Selecciona el usuario (por ejemplo, *Miquel Valls*).  
+- Introduce la nueva contraseña.  
+
+⚠️ **Nota:** Verifica que *Bloq Mayús* esté desactivado.
+
+---
+
+## 9. Generar hash PBKDF2 para GRUB
+
+Ejecuta:
+
+`grub-mkpasswd-pbkdf2`
+
+`/Imagen9/`
+
+Copia el hash generado.
+
+⚠️ **Nota:** Guarda este hash; será necesario más adelante.
+
+---
+
+## 10. Editar el archivo 40_custom
+
+Abre:
+
+`sudo nano /etc/grub.d/40_custom`
+
+`/Imagen10/`
+
+Agrega:
+`set superusers="miquel,root"`
+`password_pbkdf2 miquel grub.pbkdf2.sha512.10000.01B0F9BFED3D69C8C29750B17590BAB7...` (hash contraseña miquel)
+`password_pbkdf2 root grub.pbkdf2.sha512.10000.83F0FFABC8F9F01098FB80DF5EB093B0A...` (hash contraseña root)
+
+`/Imagen11/`
+
+Guarda con **Ctrl + O**, sal con **Ctrl + X**.
+
+⚠️ **Nota:** Asegúrate de que no haya errores de sintaxis.
+
+---
+
+## 11. Establecer contraseña para el usuario root
+
+Verifica:
+
+`sudo passwd -S root`
+
+Desbloquea:
+
+`sudo passwd -u root`
+
+Asigna:
+
+`sudo passwd root`
+
+`/Imagen12/`
+
+⚠️ **Nota:** Usa esta contraseña solo para administración avanzada.
+
+---
+
+## 12. Verificar acceso al usuario root con su
+
+Ejecuta:
+
+`su`
+
+`/Imagen13/`
+
+Si el prompt cambia a `root@equipo:~#`, el acceso fue exitoso.
+
+---
+
+## 13. Actualizar GRUB para aplicar los cambios
+
+Ejecuta:
+
+`sudo update-grub`
+
+`/Imagen16/`
+
+Salida esperada:
+
+`Generating grub configuration file ...
+done`
+
+
+⚠️ **Nota:** Este paso es obligatorio tras cualquier cambio en GRUB.
+
+---
+
+## 14. Verificar protección de GRUB tras reinicio
+
+Reinicia:
+
+`sudo reboot`
+
+`/Imagen17/`
+
+GRUB pedirá usuario y contraseña.  
+Introduce `miquel` o `root`.
+
+⚠️ **Nota:** Si no aparece el menú, presiona **Esc** durante el arranque.
+
+---
+
+## 15. Autenticarse en GRUB
+
+En la autenticación:
+
+`Enter username: miquel`
+
+Introduce la contraseña configurada.  
+
+`/Imagen18/`
+
+⚠️ **Nota:** Si fallas, no podrás continuar con el arranque.
+
+---
+
+## 16. Modificar 10_linux para añadir o quitar --unrestricted
+
+Abre:
+
+`sudo nano /etc/grub.d/10_linux`
+
+Cambia:
+```
+
+echo "menuentry '$(echo "$title" | grub_quote)' ${CLASS} >
+
+```
+Por:
+```
+
+echo "menuentry '$(echo "$title" | grub_quote)' ${CLASS} --unrestricted >
+
+```
+
+`/Imagen21/`
+
+Guarda y ejecuta:
+```
+
+sudo update-grub
+
+```
+
+⚠️ **Nota:** `--unrestricted` permite arrancar sin autenticación esas entradas.
+
+---
+
+## 17. Verificar autenticación solo en accesos intencionados
+
+Reinicia:
+```
+
+sudo reboot
+
+```
+`/Imagen22/`
+
+El sistema arrancará directamente sin pedir contraseña.  
+`/Imagen23/`
+
+Para acceder al menú protegido, presiona **Shift** o **Esc**.  
+`/Imagen24/`
+
+⚠️ **Nota:** El sistema arrancará normalmente, pero el menú avanzado seguirá protegido.
+
+---
+
+## 18. Notas finales
+
+✅ El sistema arrancará sin pedir contraseña, pero si intentas acceder al modo de recuperación o edición del GRUB, se solicitará autenticación.  
+
+⚠️ **Advertencia:**
+- Manipular GRUB o el acceso root debe hacerse con precaución.  
+- Realiza copias de seguridad antes de modificar archivos críticos.  
+- Estas configuraciones están destinadas a personal técnico o administradores.
+
+📝 **Fuentes:**
+- [YouTube: uVGcgudLTl0](https://youtu.be/uVGcgudLTl0?si=xhJET3GmH53PvVsd)  
+- [SoloConLinux: securizando-grub](https://soloconlinux.org.es/securizando-grub/)
+```
+
+---
