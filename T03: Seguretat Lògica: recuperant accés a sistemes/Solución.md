@@ -24,6 +24,24 @@
 18. [Notas finales](#18-notas-finales)
 
 ---
+
+## 1. Creación de la máquina virtual
+
+Configuraremos una máquina virtual con los recursos necesarios y un disco existente con una imagen ISO previamente preparada, para realizar prácticas de recuperación de contraseñas y protección del GRUB.
+
+<img src="img/confi1.png" alt="Ordenador HP" width="400" height="auto">  
+<img src="img/confi2.png" alt="Ordenador HP" width="400" height="auto">
+
+**Pasos detallados:**
+- Crea una nueva máquina virtual con:
+  - 8 GB de memoria RAM  
+  - 2 procesadores  
+- En el apartado **Hard Disk**, selecciona:  
+  *Use an existing virtual hard disk file*  
+- Elige el disco que contiene la ISO previamente creada (en este caso estará en la comuna).  
+- Guarda la configuración y arranca la máquina.
+
+---
 Antes de empezar debemos Identificar la partición raíz correcta
 Antes de ejecutar set root=(hd0,gpt3), se necesita saber en qué partición está instalado el sistema operativo.
 
@@ -43,22 +61,6 @@ ls (hd0,gpt3)/
 Explora el contenido de una partición. Busca una que contenga /boot o archivos como vmlinuz, initrd.img, etc.
 
 Una vez identificada la partición correcta iniciamos la entrada/vulneración.
----
-## 1. Creación de la máquina virtual
-
-Configuraremos una máquina virtual con los recursos necesarios y un disco existente con una imagen ISO previamente preparada, para realizar prácticas de recuperación de contraseñas y protección del GRUB.
-
-<img src="img/confi1.png" alt="Ordenador HP" width="400" height="auto">  
-<img src="img/confi2.png" alt="Ordenador HP" width="400" height="auto">
-
-**Pasos detallados:**
-- Crea una nueva máquina virtual con:
-  - 8 GB de memoria RAM  
-  - 2 procesadores  
-- En el apartado **Hard Disk**, selecciona:  
-  *Use an existing virtual hard disk file*  
-- Elige el disco que contiene la ISO previamente creada (en este caso estará en la comuna).  
-- Guarda la configuración y arranca la máquina.
 
 ---
 
